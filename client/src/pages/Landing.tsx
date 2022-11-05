@@ -9,21 +9,20 @@ const Landing = () => {
       <nav>
         <Logo />
       </nav>
-      <div className="container page">
-        <div className="info">
+      <div className='container page'>
+        <div className='info'>
           <h1>
             job <span>tracking</span> app
           </h1>
           <p>
-            I'm baby slow-carb vibecession hot chicken quinoa direct trade
-            master cleanse man bun scenester yes plz stumptown humblebrag fanny
-            pack jianbing. Synth literally edison bulb, la croix vibecession
-            blue bottle taiyaki green juice man braid tumblr pour-over tbh prism
-            try-hard.
+            Im baby slow-carb vibecession hot chicken quinoa direct trade master cleanse man bun
+            scenester yes plz stumptown humblebrag fanny pack jianbing. Synth literally edison bulb,
+            la croix vibecession blue bottle taiyaki green juice man braid tumblr pour-over tbh
+            prism try-hard.
           </p>
-          <button className="btn btn-hero">Login/Register</button>
+          <button className='btn btn-hero'>Login/Register</button>
         </div>
-        <img src={main} alt="job hunt" className="img main-img" />
+        <img src={main} alt='job hunt' className='img main-img' />
       </div>
     </Wrapper>
   );
