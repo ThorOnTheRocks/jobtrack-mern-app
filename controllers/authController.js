@@ -1,6 +1,7 @@
 import User from "../models/User.js";
 import { StatusCodes } from 'http-status-codes';
 import { BadRequestError } from "../errors/index.js";
+import _ from 'lodash';
 
 
 const register = async (req, res, next) => {
@@ -11,7 +12,14 @@ const register = async (req, res, next) => {
   if (userAlreadyExists) throw new BadRequestError('Email already in use')
 
   const user = await User.create({ name, email, password });
-  res.status(StatusCodes.OK).json({ user });
+  const userData = _.pick(user, _.keys({
+    "name": user.name,
+    "lastName": user.lastName,
+    "email": user.email,
+    "location": user.location
+  }));
+  const token = user.createJWT();
+  res.status(StatusCodes.OK).json({ userData, token });
 };
 
 const login = async (req, res) => {
