@@ -1,7 +1,8 @@
-import { useState, useEffect, SetStateAction, ChangeEvent } from 'react';
+import { useState, useEffect, ChangeEvent } from 'react';
 import { Logo, FormRow, Alert } from '../components';
 import Wrapper from '../assets/wrappers/RegisterPage';
 import { useAppContext } from '../context/appContext';
+import { useNavigate } from 'react-router-dom';
 export interface IRegisterState {
   name: string;
   email: string;
@@ -17,9 +18,9 @@ const initialState: IRegisterState = {
 };
 
 const Register = () => {
+  const navigate = useNavigate();
   const [values, setValues] = useState<IRegisterState>(initialState);
-  const { isLoading, showAlert, displayAlert, clearAlert } = useAppContext();
-
+  const { user, isLoading, showAlert, displayAlert, clearAlert, registerUser } = useAppContext();
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setValues({ ...values, [event.target.name]: event.target.value });
   };
@@ -33,8 +34,21 @@ const Register = () => {
       displayAlert();
       return;
     }
-    console.log(values);
+    const currentUser = { name, email, password };
+    if (isMember) {
+      console.log('Sorry but user is already registered');
+    } else {
+      registerUser(currentUser);
+    }
   };
+
+  useEffect(() => {
+    if (user) {
+      setTimeout(() => {
+        navigate('/');
+      }, 3000);
+    }
+  }, [user, navigate]);
 
   return (
     <Wrapper className='full-page'>
@@ -66,7 +80,7 @@ const Register = () => {
           labelText={''}
         />
 
-        <button type='submit' className='btn btn-block'>
+        <button type='submit' className='btn btn-block' disabled={isLoading}>
           Submit
         </button>
         <p>
