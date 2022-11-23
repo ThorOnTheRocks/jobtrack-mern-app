@@ -20,7 +20,16 @@ const initialState: IRegisterState = {
 const Register = () => {
   const navigate = useNavigate();
   const [values, setValues] = useState<IRegisterState>(initialState);
-  const { user, isLoading, showAlert, displayAlert, clearAlert, registerUser } = useAppContext();
+  const {
+    user,
+    isLoading,
+    showAlert,
+    displayAlert,
+    clearAlert,
+    registerUser,
+    loginUser,
+    setupUser,
+  } = useAppContext();
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setValues({ ...values, [event.target.name]: event.target.value });
   };
@@ -36,9 +45,13 @@ const Register = () => {
     }
     const currentUser = { name, email, password };
     if (isMember) {
-      console.log('Sorry but user is already registered');
+      setupUser({ currentUser, endpoint: 'login', alertText: 'Login Successful! Redirecting...' });
     } else {
-      registerUser(currentUser);
+      setupUser({
+        currentUser,
+        endpoint: 'register',
+        alertText: 'User registered! Redirecting...',
+      });
     }
   };
 
