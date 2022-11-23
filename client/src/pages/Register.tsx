@@ -20,16 +20,7 @@ const initialState: IRegisterState = {
 const Register = () => {
   const navigate = useNavigate();
   const [values, setValues] = useState<IRegisterState>(initialState);
-  const {
-    user,
-    isLoading,
-    showAlert,
-    displayAlert,
-    clearAlert,
-    registerUser,
-    loginUser,
-    setupUser,
-  } = useAppContext();
+  const { user, isLoading, showAlert, displayAlert, clearAlert, setupUser } = useAppContext();
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setValues({ ...values, [event.target.name]: event.target.value });
   };
