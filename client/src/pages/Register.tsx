@@ -27,8 +27,8 @@ const Register = () => {
 
   const handleToggleMember = () => setValues({ ...values, isMember: !values.isMember });
 
-  const onSubmit = (event: { preventDefault: () => void; target: any }) => {
-    event.preventDefault();
+  const onSubmit = (e) => {
+    e.preventDefault();
     const { name, email, password, isMember } = values;
     if (!email || !password || (!isMember && !name)) {
       displayAlert();
@@ -36,12 +36,16 @@ const Register = () => {
     }
     const currentUser = { name, email, password };
     if (isMember) {
-      setupUser({ currentUser, endpoint: 'login', alertText: 'Login Successful! Redirecting...' });
+      setupUser({
+        currentUser,
+        endPoint: 'login',
+        alertText: 'Login Successful! Redirecting...',
+      });
     } else {
       setupUser({
         currentUser,
-        endpoint: 'register',
-        alertText: 'User registered! Redirecting...',
+        endPoint: 'register',
+        alertText: 'User Created! Redirecting...',
       });
     }
   };
