@@ -7,6 +7,7 @@ import {
   SETUP_USER_SUCCESS,
   SETUP_USER_ERROR,
   TOGGLE_SIDEBAR,
+  TOGGLE_DROPDOWN,
   LOGOUT_USER,
 } from './actions';
 import reducer from './reducer';
@@ -25,6 +26,7 @@ const initialState = {
   userLocation: location || '',
   jobLocation: location || '',
   showSidebar: false,
+  showDropdown: false,
 };
 
 const AppContext = createContext();
@@ -85,14 +87,31 @@ const AppProvider = ({ children }) => {
     dispatch({ type: TOGGLE_SIDEBAR });
   };
 
+  const toggleDropdown = () => {
+    dispatch({ type: TOGGLE_DROPDOWN });
+  };
+
   const logoutUser = () => {
     dispatch({ type: LOGOUT_USER });
     removeUserFromLocalStorage();
   };
 
+  const updateUser = async (currentUser) => {
+    console.log(currentUser);
+  };
+
   return (
     <AppContext.Provider
-      value={{ ...state, displayAlert, clearAlert, setupUser, toggleSidebar, logoutUser }}
+      value={{
+        ...state,
+        displayAlert,
+        clearAlert,
+        setupUser,
+        toggleSidebar,
+        toggleDropdown,
+        logoutUser,
+        updateUser,
+      }}
     >
       {children}
     </AppContext.Provider>

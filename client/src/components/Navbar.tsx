@@ -5,8 +5,7 @@ import Wrapper from '../assets/wrappers/Navbar';
 import Logo from './Logo';
 
 const Navbar = () => {
-  const [showDropdown, setShowDropdown] = useState(false);
-  const { user, toggleSidebar, logoutUser } = useAppContext();
+  const { user, toggleSidebar, toggleDropdown, showDropdown, logoutUser } = useAppContext();
   return (
     <Wrapper>
       <div className='nav-center'>
@@ -18,7 +17,7 @@ const Navbar = () => {
           <h3 className='logo-text'>Dashboard</h3>
         </div>
         <div className='btn-container'>
-          <button type='button' className='btn' onClick={() => setShowDropdown(!showDropdown)}>
+          <button type='button' className='btn' onClick={toggleDropdown}>
             <FaUserCircle />
             {user?.name}
             <FaCaretDown />

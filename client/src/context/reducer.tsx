@@ -5,6 +5,7 @@ import {
   SETUP_USER_SUCCESS,
   SETUP_USER_ERROR,
   TOGGLE_SIDEBAR,
+  TOGGLE_DROPDOWN,
   LOGOUT_USER,
 } from './actions';
 
@@ -57,7 +58,12 @@ const reducer = (state, action) => {
       showSidebar: !state.showSidebar,
     };
   }
-
+  if (action.type === TOGGLE_DROPDOWN) {
+    return {
+      ...state,
+      showDropdown: !state.showDropdown,
+    };
+  }
   if (action.type === LOGOUT_USER) {
     return {
       ...initialState,
