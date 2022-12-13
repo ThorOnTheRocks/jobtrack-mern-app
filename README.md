@@ -8,12 +8,12 @@ Create an account and log in to save your favorite jobs and apply to them later.
 Admin users can create, edit, and delete job listings.<br>
 
 ### Technologies Used
-MongoDB: Used for storing the data for the job listings and users.<br>
-Mongoose: Used as middleware for simplifying the interaction with the MongoDB database.<br>
-Express: Used for building the RESTful API for the application.<br>
-React: Used for creating the UI components and pages for the frontend of the application.<br>
-Node.js: Used for creating the backend server and running the application.<br>
-React-Context: Used for managing the application state.<br>
+**MongoDB**: Used for storing the data for the job listings and users.<br>
+**Mongoose**: Used as middleware for simplifying the interaction with the MongoDB database.<br>
+**Express**: Used for building the RESTful API for the application.<br>
+**React**: Used for creating the UI components and pages for the frontend of the application.<br>
+**Node.js**: Used for creating the backend server and running the application.<br>
+**React-Context**: Used for managing the application state.<br>
 
 ### Running the Application
 To run this application on your local machine, follow these steps:<br>
