@@ -43,11 +43,9 @@ const AppProvider = ({ children }) => {
   });
 
   // request;
-  authFetch.interceptors.request.use(
+  axios.interceptors.request.use(
     (config) => {
-      config.headers = {
-        Authorization: token,
-      };
+      config.headers.commons['Authorization'] = `Bearer ${state.token}`;
       return config;
     },
     (error) => {
