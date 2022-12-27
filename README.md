@@ -21,8 +21,7 @@ Clone this repository to your local machine.<br>
 Install the necessary dependencies by running npm install in the root directory of the repository.<br>
 Set up your MongoDB database by following the instructions in the server/config/keys.js file.<br><br>
 Start the backend server by running npm run server in the root directory of the repository. This will start the Express server on port 5000.<br>
-Start the frontend development server by running npm run client in the root directory of the repository. This will start the React development server on port 3000.<br>
-Open a web browser and navigate to http://localhost:3000 to access the application.<br>
+Start the frontend development server by running 'yarn run dev' in the root directory of the repository.<br>
 
 ### License
 This project is licensed under the MIT License. See the LICENSE file for more details.
