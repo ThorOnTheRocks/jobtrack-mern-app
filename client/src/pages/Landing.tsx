@@ -21,7 +21,9 @@ const Landing = () => {
             la croix vibecession blue bottle taiyaki green juice man braid tumblr pour-over tbh
             prism try-hard.
           </p>
-          <button className='btn btn-hero'>Login/Register</button>
+          <Link to='/register'>
+            <button className='btn btn-hero'>Login/Register</button>
+          </Link>
         </div>
         <img src={main} alt='job hunt' className='img main-img' />
       </div>
