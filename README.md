@@ -1,4 +1,4 @@
-#Jobify
+##Jobify
 Welcome to the Jobify MERN app repository! This project is a fullstack web application where users can browse for jobs, built using the MERN stack (MongoDB, Express, React, and Node.js).
 
 Features
