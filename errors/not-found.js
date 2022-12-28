@@ -1,5 +1,5 @@
-import CustomAPIError from "./custom-api.js";
-import { StatusCodes } from "http-status-codes";
+import { StatusCodes } from 'http-status-codes'
+import CustomAPIError from './custom-api.js'
 
 class NotFoundError extends CustomAPIError {
   constructor(message) {
@@ -8,4 +8,4 @@ class NotFoundError extends CustomAPIError {
   }
 }
 
-export default NotFoundError;
+export default NotFoundError
